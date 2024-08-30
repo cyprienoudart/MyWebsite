@@ -14,7 +14,7 @@ JavaScript: For interactive elements and dynamic content.
 GitHub Pages: For hosting the website.
 
   Getting Started
-To view the website, simply visit https://cyprienoudart.github.io/MyWebsite/.
+To view the website, simply visit https://cyprienoudart.com
 
   Cloning the Repository
 If you want to clone the repository to make your own modifications:
