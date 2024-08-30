@@ -6,12 +6,12 @@
 
 /* Variables */
 :root {
-    --background-color: #ffffff;
-    --text-color: #000000;
-    --primary-color: #4CAF50;
-    --secondary-color: #f1f1f1;
+    --background-color: #121212;
+    --text-color: #e0e0e0;
+    --primary-color: #1DB954;
+    --secondary-color: #282828;
     --font-family: 'Jost', sans-serif;
-    --fa-border-color: #eee;
+    --fa-border-color: #555;
 }
 
 /* Font Awesome Specific Styles */
@@ -24,11 +24,6 @@
     font-style: normal;
     line-height: 1;
     text-rendering: auto;
-}
-
-[data-theme="dark"] {
-    --background-color: #121212;
-    --text-color: #ffffff;
 }
 
 /* General Styles */
@@ -60,25 +55,62 @@ body {
 
 .navbar {
     display: flex;
-    justify-content: space-between;
-    background-color: #333;
+    justify-content: center;
+    background-color: var(--secondary-color);
+    align-items: center;
+    padding: 20px 0;
+}
+
+/* Increase font size for brand and nav links */
+.navbar-brand, .navbar-nav .nav-link {
+    font-size: 1.5rem; /* Make text larger */
+    font-weight: 700; /* Bold text */
+    color: #e0e0e0;
+    text-decoration: none;
+}
+
+/* Ensure links are on the same line and evenly spaced */
+.navbar-nav {
+    list-style: none;
+    padding-left: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: row;
+    gap: 30px; /* Space between nav items */
+}
+
+.navbar-nav .nav-item {
+    margin: 0; /* Remove default margin */
+}
+
+.navbar-nav .nav-link:hover, .navbar-brand:hover {
+    color: #1DB954; /* Color change on hover */
+}
+
+/* Adjust alignment for the brand and nav links to center them together */
+.container-xl {
+    display: flex;
+    justify-content: center; /* Center the entire content */
+    align-items: center;
 }
 
 .navbar a {
-    color: white;
+    color: var(--text-color);
     padding: 14px 20px;
     text-decoration: none;
     text-align: center;
 }
 
-.navbar a:hover {
-    background-color: #ddd;
-    color: black;
-}
+/* .navbar a:hover {
+    background-color: var(--primary-color);
+    color: #121212;
+} */
 
 .main {
     padding: 20px;
-    background-color: white;
+    background-color: var(--secondary-color);
+    color: var(--text-color);
+    border-radius: 8px;
 }
 
 .footer {
@@ -118,4 +150,36 @@ body {
 @keyframes fa-spin {
     0% { transform: rotate(0); }
     100% { transform: rotate(360deg); }
+}
+
+/* General Section Styles */
+.home-section {
+    padding: 40px 20px;
+    margin: 20px 0;
+}
+
+/* Specific Section Styles */
+#about {
+    background-color: #272935
+    ;  /* Dark background for the About Me section */
+    color: #e0e0e0;  /* Light text color for contrast */
+}
+
+#projects {
+    background-color: #23262f;  /* Slightly darker background for the Projects section */
+    color: #e0e0e0;  /* Maintain consistent text color */
+}
+
+#contact {
+    background-color: #272935
+    ;  /* Primary color for the Contact section */
+    color: #121212;  /* Dark text color for contrast */
+}
+
+/* Adding additional padding to the footer to distinguish it from sections */
+.site-footer {
+    padding: 20px 0;
+    background-color: #23262f;  /* Same background as About Me for consistency */
+    color: #e0e0e0;
+    text-align: center;
 }
