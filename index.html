@@ -16,17 +16,27 @@
 
     <meta name="author" content="Cyprien Oudart">
     <meta name="description" content="Cyprien Oudart's Personal Website">
+
+    <!-- Font Awesome Script -->
+    <script src="https://kit.fontawesome.com/f12850c4bd.js" crossorigin="anonymous"></script>
+
 </head>
 
 <body id="top" class="page-wrapper">
     <header>
         <nav class="navbar">
-            <div class="container-xl d-flex justify-content-between align-items-center">
+            <div class="container-xl d-flex justify-content-center align-items-center">
                 <a class="navbar-brand" href="/" onclick="location.reload()">Cyprien Oudart's Website</a>
                 <ul class="navbar-nav d-flex flex-row ml-auto">
                     <li class="nav-item">
-                        <a class="nav-link" href="#about">About Me</a>
+                        <a class="nav-link" href="#about">Home</a>
                     </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#education">Education</a>
+                    </li>
+                    <!-- <li class="nav-item">
+                        <a class="nav-link" href="#experience">Experiences</a>
+                    </li> -->
                     <li class="nav-item">
                         <a class="nav-link" href="#projects">Projects</a>
                     </li>
@@ -41,39 +51,61 @@
     <main>
         <section id="about" class="home-section">
             <div class="container">
-                <div class="row">
-                    <div class="col-12 col-lg-4">
-                        <img class="avatar" width="270" height="270" src="pictures/ProfilePicture.jpg" alt="Cyprien Oudart">
+                <div class="row biography-container">
+                    <!-- Left Section: Picture, Name, Grade, School, Links -->
+                    <div class="col-12 col-lg-6 left-section">
+                        <img class="avatar" src="pictures/ProfilePicture.jpg" alt="Cyprien Oudart">
                         <div class="portrait-title">
                             <h2>Cyprien Oudart</h2>
-                            <h3>Computer Science Undergraduate Student</h3>
-                            <h3><a href="https://www.epita.fr/" target="_blank">EPITA</a></h3>
+                            <h3 class="student-grade">Computer Science Undergraduate Student</h3>
+                            <h4><a href="https://www.epita.fr/" target="_blank" class="school-link">EPITA</a></h4>
                         </div>
                         <ul class="network-icon">
-                            <li><a href="mailto:cypoudart@gmail.com" aria-label="Email"><i class="fas fa-envelope"></i></a></li>
-                            <li><a href="https://twitter.com/CyprienOudart" target="_blank" aria-label="Twitter"><i class="fab fa-twitter"></i></a></li>
-                            <li><a href="https://github.com/CyprienOudart" target="_blank" aria-label="GitHub"><i class="fab fa-github"></i></a></li>
-                            <li><a href="https://www.linkedin.com/in/CyprienOudart/" target="_blank" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a></li>
+                            <li><a href="mailto:cypoudart@gmail.com" aria-label="Email"><i class="fa-solid fa-envelope" style="color: #74C0FC;"></i></a></li>
+                            <li><a href="https://www.linkedin.com/in/CyprienOudart/" target="_blank" aria-label="LinkedIn"><i class="fa-brands fa-linkedin" style="color: #74C0FC;"></i></a></li>
+                            <li><a href="https://github.com/CyprienOudart" target="_blank" aria-label="GitHub"><i class="fa-brands fa-github" style="color: #74C0FC;"></i></a></li>
+                            <li><a href="https://leetcode.com/CyprienOudart/" target="_blank" aria-label="LeetCode"><i class="fab fa-code"></i></a></li>
+                            <li><a href="resume.pdf" target="_blank" aria-label="Resume"><i class="fas fa-file"></i></a></li>
                         </ul>
                     </div>
-                    <div class="col-12 col-lg-8">
+        
+                    <!-- Right Section: About Me, Interests -->
+                    <div class="col-12 col-lg-6 right-section">
                         <h1>About Me</h1>
                         <p>I am a software engineering student at EPITA with a strong interest in developing innovative solutions to complex technical problems. I have completed a semester at UC Berkeley, where I focused on deepening my understanding of computational theories.</p>
-                        <h2>Interests</h2>
-                        <ul>
-                            <li>Software Development</li>
-                            <li>Artificial Intelligence</li>
-                            <li>Cloud Computing</li>
-                        </ul>
-                        <h2>Education</h2>
-                        <ul>
-                            <li>Engineering degree, Computer Science, 2028 (expected) - EPITA</li>
-                            <li>Summer Semester in Mathematics and Computer Science, 2024 - UC Berkeley</li>
-                        </ul>
+                        
+                        <div class="row">
+                            <!-- Interests -->
+                            <div class="col-12 col-md-12">
+                                <h2>Interests</h2>
+                                <ul>
+                                    <li>Software Development</li>
+                                    <li>Artificial Intelligence</li>
+                                    <li>Algorithm</li>
+                                </ul>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
         </section>
+
+        <section id="education" class="home-section">
+            <div class="container">
+                <h1>Education</h1>
+                <ul>
+                    <li>Engineering degree, Computer Science, 2028 (expected) - EPITA</li>
+                    <li>Summer Semester in Mathematics and Computer Science, 2024 - UC Berkeley</li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- <section id="experience" class="home-section">
+            <div class="container">
+                <h1>Experiences</h1>
+                <p>A showcase of my various experiences.</p>
+            </div>
+        </section> -->
 
         <section id="projects" class="home-section">
             <div class="container">

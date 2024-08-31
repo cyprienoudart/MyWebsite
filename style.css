@@ -14,25 +14,48 @@
     --fa-border-color: #555;
 }
 
-/* Font Awesome Specific Styles */
-.fa, .fa-brands, .fa-regular, .fa-solid {
-    font-family: var(--fa-style-family, "Font Awesome 6 Free");
-    font-weight: var(--fa-style, 900);
-    -moz-osx-font-smoothing: grayscale;
-    -webkit-font-smoothing: antialiased;
-    display: inline-block;
-    font-style: normal;
-    line-height: 1;
-    text-rendering: auto;
+html {
+    scroll-behavior: smooth; /* Enables smooth scrolling */
+}
+
+/* Profile Picture Styling */
+.avatar {
+    width: 300px; /* Adjust the size to a reasonable display size */
+    height: 300px; /* Keep the height the same as the width to maintain the circle */
+    border-radius: 50%; /* Makes the image circular */
+    object-fit: cover; /* Ensures the image covers the area without stretching */
+    display: block;
+    margin: 0 auto; /* Center the image horizontally */
+}
+
+
+
+/* Profile Picture Styling */
+.avatar {
+    width: 200px; /* Set a fixed width for the profile picture */
+    height: 200px; /* Set a fixed height to maintain aspect ratio */
+    border-radius: 50%; /* Makes the image circular */
+    object-fit: cover; /* Ensures the image covers the area without stretching */
+    border: 4px solid #e0e0e0; /* Optional: Add a border around the circle */
+    display: block;
+    margin: 0 auto; /* Center the image horizontally */
 }
 
 /* General Styles */
 body {
+
+    font-size: 1rem;
+    line-height: inherit;
+    color: inherit;
+    background-color: #fff;
+
+    counter-reset: captions;
+    overflow-x: hidden;
     margin: 0;
     padding: 0;
-    font-family: var(--font-family);
-    background-color: var(--background-color);
-    color: var(--text-color);
+    padding-top: 50px;
+    font-family: inherit;
+
     transition: background-color 0.3s, color 0.3s;
 }
 
@@ -54,16 +77,24 @@ body {
 }
 
 .navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background-color: #272935; /* Ensure the navbar has a background color */
+    z-index: 1000; /* Make sure it stays on top of other content */
+    padding: 10px 0; /* Reduced padding to decrease the navbar height */
     display: flex;
     justify-content: center;
-    background-color: var(--secondary-color);
     align-items: center;
-    padding: 20px 0;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1); /* Very thin white line for separation */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Soft shadow for smooth transition */
+    
 }
 
 /* Increase font size for brand and nav links */
 .navbar-brand, .navbar-nav .nav-link {
-    font-size: 1.5rem; /* Make text larger */
+    font-size: 1.2rem; /* Make text larger */
     font-weight: 700; /* Bold text */
     color: #e0e0e0;
     text-decoration: none;
@@ -76,7 +107,7 @@ body {
     margin: 0;
     display: flex;
     flex-direction: row;
-    gap: 30px; /* Space between nav items */
+    gap: 20px; /* Space between nav items */
 }
 
 .navbar-nav .nav-item {
@@ -155,8 +186,150 @@ body {
 /* General Section Styles */
 .home-section {
     padding: 40px 20px;
-    margin: 20px 0;
+    margin: 0; /* Remove any margins between sections */
+    /* background: none;*/ /* Ensure background is consistent with the main content */
+    /* border: none; */
 }
+
+
+.left-section {
+    text-align: center;
+    margin-bottom: 20px;
+    flex: 1;
+}
+
+.left-section .portrait-title {
+    font-size: 2rem; /* Larger name */
+    font-weight: normal; /* Not bold */
+    color: #e0e0e0; /* Standard light color */
+}
+
+.left-section h2, 
+.left-section h3, 
+.left-section h4 {
+    margin: 10px 0;
+    color: #e0e0e0;
+}
+
+.left-section .network-icon {
+    list-style: none;
+    padding: 0;
+    margin-top: 15px;
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+}
+
+.left-section .network-icon li {
+    display: inline-block;
+}
+
+.left-section .network-icon a {
+    color: #e0e0e0;
+    font-size: 1.5rem;
+}
+
+/* Right Section: About Me, Interests, Education */
+.right-section {
+    color: #e0e0e0;
+    flex: 1;
+}
+
+.left-section .student-grade {
+    color: #a0a0a0; /* Light grey color for the grade */
+    font-size: 1.2rem;
+    margin: 10px 0;
+}
+
+.left-section .school-link {
+    color: #bbdefa; /* Light blue color for the school link */
+    font-size: 1.2rem;
+    margin-bottom: 20px;
+    display: inline-block;
+}
+
+.left-section .network-icon {
+    list-style: none;
+    padding: 0;
+    margin-top: 15px;
+    display: flex;
+    justify-content: center;
+    gap: 15px; /* Space between icons */
+}
+
+.left-section .network-icon li {
+    display: inline-block;
+}
+
+.left-section .network-icon img {
+    width: 30px; /* Size of the icons */
+    height: 30px;
+    filter: brightness(0) invert(1) sepia(1) saturate(5000%) hue-rotate(90deg); /* Color to match the EPITA link */
+}
+
+.right-section h1 {
+    margin-bottom: 20px;
+    font-size: 2rem;
+}
+
+.right-section h2 {
+    margin-top: 20px;
+    font-size: 1.5rem;
+}
+
+.right-section p {
+    margin-bottom: 20px;
+    font-size: 1rem;
+    line-height: 1.6;
+}
+
+.right-section ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.right-section ul li {
+    margin-bottom: 10px;
+}
+
+/* Media Queries for Responsiveness */
+@media (max-width: 991px) {
+    .biography-container {
+        flex-direction: column;
+        align-items: center;
+    }
+}
+
+.biography-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start; /* Aligns items to the top of the container */
+    gap: 20px; /* Adds space between the two sections */
+}
+
+
+
+
+#education h1 {
+    margin-bottom: 20px;
+    font-size: 2rem;
+}
+
+#education ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+#education ul li {
+    margin-bottom: 10px;
+    font-size: 1rem;
+    line-height: 1.6;
+}
+
+
+
 
 /* Specific Section Styles */
 #about {
@@ -165,21 +338,32 @@ body {
     color: #e0e0e0;  /* Light text color for contrast */
 }
 
+/* Education Section */
+#education {
+    padding: 40px 20px;
+    background-color: #242730; /* Match with the overall theme */
+    color: #e0e0e0;
+}
+
+#experience {
+    background-color: #272935;  /* Slightly darker background for the Projects section */
+    color: #e0e0e0;  /* Maintain consistent text color */
+}
+
 #projects {
-    background-color: #23262f;  /* Slightly darker background for the Projects section */
+    background-color: #272935;  /* Slightly darker background for the Projects section */
     color: #e0e0e0;  /* Maintain consistent text color */
 }
 
 #contact {
-    background-color: #272935
-    ;  /* Primary color for the Contact section */
-    color: #121212;  /* Dark text color for contrast */
+    background-color: #242730;  /* Primary color for the Contact section */
+    color: #e0e0e0;  /* Dark text color for contrast */
 }
 
 /* Adding additional padding to the footer to distinguish it from sections */
 .site-footer {
     padding: 20px 0;
-    background-color: #23262f;  /* Same background as About Me for consistency */
+    background-color: #272935;  /* Same background as About Me for consistency */
     color: #e0e0e0;
     text-align: center;
 }
