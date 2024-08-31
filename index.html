@@ -26,7 +26,7 @@
     <header>
         <nav class="navbar">
             <div class="container-xl d-flex justify-content-center align-items-center">
-                <a class="navbar-brand" href="/" onclick="location.reload()">Cyprien Oudart's Website</a>
+                <a class="navbar-brand" href="/" style="font-size: 1.5rem; font-weight: Bold;" onclick="location.reload()">Cyprien Oudart's Website&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a>
                 <ul class="navbar-nav d-flex flex-row ml-auto">
                     <li class="nav-item">
                         <a class="nav-link" href="#about">Home</a>
@@ -39,6 +39,9 @@
                     </li> -->
                     <li class="nav-item">
                         <a class="nav-link" href="#projects">Projects</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#accomplishement">Accomplishments</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="#contact">Contact</a>
@@ -92,11 +95,46 @@
 
         <section id="education" class="home-section">
             <div class="container">
+                <!-- Education Title -->
                 <h1>Education</h1>
-                <ul>
-                    <li>Engineering degree, Computer Science, 2028 (expected) - EPITA</li>
-                    <li>Summer Semester in Mathematics and Computer Science, 2024 - UC Berkeley</li>
-                </ul>
+        
+                <!-- First Education Experience -->
+                <div class="education-item">
+                    <div class="education-details">
+                        <div class="education-header">
+                            <img src="pictures/Epita.png" alt="School Logo" class="education-logo">
+                            <div>
+                                <h2>EPITA School of Engineering and Computer Science</h2>
+                                <p class="school-date">Sep 2021 - Jun 2026</p>
+                            </div>
+                        </div>
+                        <ul class="education-description">
+                            <li>Specialization in Artificial Intelligence and Data Science.</li>
+                            <li>In-depth courses on algorithms, machine learning, and software engineering.</li>
+                            <li>Member of the Robotics Club and Data Science Society.</li>
+                        </ul>
+                    </div>
+                </div>
+        
+                <!-- Second Education Experience -->
+                <div class="education-item">
+                    <div class="education-details">
+                        <div class="education-header">
+                            <img src="pictures/UCBerkeley.png" alt="School Logo" class="education-logo">
+                            <div>
+                                <h2>UC Berkeley, Summer Session</h2>
+                                <p class="school-date">Jun 2024 - Aug 2024</p>
+                            </div>
+                        </div>
+                        <ul class="education-description">
+                            <li>Completed advanced courses in data structures and algorithms.</li>
+                            <li>Worked on a project focusing on large-scale data processing and analysis.</li>
+                            <li>Collaborated with international students on a team-based capstone project.</li>
+                        </ul>
+                    </div>
+                </div>
+        
+                <!-- Additional Education Items can be added here -->
             </div>
         </section>
 
@@ -111,6 +149,35 @@
             <div class="container">
                 <h1>Projects</h1>
                 <p>A showcase of the various projects I’ve worked on, including descriptions, technologies used, and links to live demos or source code.</p>
+            </div>
+        </section>
+
+        <section id="accomplishments" class="home-section">
+            <div class="container">
+                <!-- Accomplishments Title -->
+                <div class="row">
+                    <div class="col-12">
+                        <h1>Accomplishments</h1>
+                    </div>
+                </div>
+        
+                <!-- First Accomplishment Item -->
+                <div class="row accomplishment-item">
+                    <!-- Accomplishment Details on the Left and Right -->
+                    <div class="col-12 col-lg-12 accomplishment-details">
+                        <div class="accomplishment-content">
+                            <div class="accomplishment-header">
+                                <img src="https://www.google.com/images/branding/googlelogo/1x/googlelogo_color_272x92dp.png" alt="Google Logo" class="accomplishment-logo">
+                                <div>
+                                    <h2>Google Data Analytics Specialization</h2>
+                                    <p class="company-date">Google     &#x2022;  Aug 2024</p>
+                                </div>
+                            </div>
+                            <p class="description">This specialization provides a thorough understanding of data analytics concepts and practical skills. It covers topics like data cleaning, analysis, and visualization using tools such as Excel, SQL, R, and Tableau.</p>
+                            <a href="https://coursera.org/share/f66adc7335ef82fdee53269119fcac76" target="_blank" class="certification-link" style="color: #74C0FC; font-size: 1.2rem;">See certification</a>
+                        </div>
+                    </div>
+                </div>
             </div>
         </section>
 

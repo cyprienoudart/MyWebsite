@@ -1,196 +1,120 @@
 @import url('https://fonts.googleapis.com/css2?family=Jost:wght@400;500;600;700&display=swap');
 
-/*!* Font Awesome Free 6.4.0 by @fontawesome - https://fontawesome.com
-* License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License)
-* Copyright 2023 Fonticons, Inc.*/
-
 /* Variables */
 :root {
     --background-color: #121212;
     --text-color: #e0e0e0;
-    --primary-color: #1DB954;
+    --primary-color: #74C0FC;
     --secondary-color: #282828;
+    --link-color: #74C0FC;
     --font-family: 'Jost', sans-serif;
     --fa-border-color: #555;
 }
 
+/* Global Styles */
 html {
-    scroll-behavior: smooth; /* Enables smooth scrolling */
+    scroll-behavior: smooth;
 }
 
-/* Profile Picture Styling */
-.avatar {
-    width: 300px; /* Adjust the size to a reasonable display size */
-    height: 300px; /* Keep the height the same as the width to maintain the circle */
-    border-radius: 50%; /* Makes the image circular */
-    object-fit: cover; /* Ensures the image covers the area without stretching */
-    display: block;
-    margin: 0 auto; /* Center the image horizontally */
-}
-
-
-
-/* Profile Picture Styling */
-.avatar {
-    width: 200px; /* Set a fixed width for the profile picture */
-    height: 200px; /* Set a fixed height to maintain aspect ratio */
-    border-radius: 50%; /* Makes the image circular */
-    object-fit: cover; /* Ensures the image covers the area without stretching */
-    border: 4px solid #e0e0e0; /* Optional: Add a border around the circle */
-    display: block;
-    margin: 0 auto; /* Center the image horizontally */
-}
-
-/* General Styles */
 body {
-
-    font-size: 1rem;
-    line-height: inherit;
-    color: inherit;
-    background-color: #fff;
-
-    counter-reset: captions;
-    overflow-x: hidden;
+    font-family: var(--font-family);
+    font-size: 1.25rem; /* Increased normal text size */
+    line-height: 1.75;  /* Adjusted line height for better readability */
+    color: var(--text-color);
+    background-color: var(--background-color);
     margin: 0;
     padding: 0;
     padding-top: 50px;
-    font-family: inherit;
-
+    overflow-x: hidden;
     transition: background-color 0.3s, color 0.3s;
 }
 
+a {
+    color: var(--link-color);
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+/* Containers */
 .container {
     max-width: 1200px;
     margin: 0 auto;
     padding: 20px;
 }
 
-.header {
-    background-color: var(--primary-color);
-    color: white;
-    padding: 20px;
-    text-align: center;
-}
-
-.header h1 {
-    margin: 0;
-}
-
-.navbar {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    background-color: #272935; /* Ensure the navbar has a background color */
-    z-index: 1000; /* Make sure it stays on top of other content */
-    padding: 10px 0; /* Reduced padding to decrease the navbar height */
+.container-xl {
     display: flex;
     justify-content: center;
     align-items: center;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.1); /* Very thin white line for separation */
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Soft shadow for smooth transition */
-    
 }
 
-/* Increase font size for brand and nav links */
-.navbar-brand, .navbar-nav .nav-link {
-    font-size: 1.2rem; /* Make text larger */
-    font-weight: 700; /* Bold text */
-    color: #e0e0e0;
+.home-section {
+    padding: 40px 20px;
+    margin: 0;
+}
+
+/* Navbar */
+.navbar {
+    position: fixed;
     text-decoration: none;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background-color: #272935;
+    z-index: 1000;
+    padding: 15px 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
 }
 
-/* Ensure links are on the same line and evenly spaced */
+.navbar-brand, .navbar-nav .nav-link {
+    font-size: 1.1rem;
+    font-weight: 700;
+    font-weight: normal; /* Ensure the links are not bold */
+    color: var(--text-color);
+}
+
 .navbar-nav {
     list-style: none;
     padding-left: 0;
     margin: 0;
     display: flex;
     flex-direction: row;
-    gap: 20px; /* Space between nav items */
+    gap: 30px;
 }
 
 .navbar-nav .nav-item {
-    margin: 0; /* Remove default margin */
+    margin: 0;
 }
 
 .navbar-nav .nav-link:hover, .navbar-brand:hover {
-    color: #1DB954; /* Color change on hover */
-}
-
-/* Adjust alignment for the brand and nav links to center them together */
-.container-xl {
-    display: flex;
-    justify-content: center; /* Center the entire content */
-    align-items: center;
-}
-
-.navbar a {
-    color: var(--text-color);
-    padding: 14px 20px;
+    color: var(--primary-color);
     text-decoration: none;
-    text-align: center;
 }
 
-/* .navbar a:hover {
-    background-color: var(--primary-color);
-    color: #121212;
-} */
-
-.main {
-    padding: 20px;
-    background-color: var(--secondary-color);
-    color: var(--text-color);
-    border-radius: 8px;
+/* Profile Picture */
+.avatar {
+    width: 300px;
+    height: 300px;
+    border-radius: 50%;
+    object-fit: cover;
+    display: block;
+    margin: 0 auto;
 }
 
-.footer {
-    background-color: var(--primary-color);
-    color: white;
-    text-align: center;
-    padding: 10px;
-    position: fixed;
-    left: 0;
-    bottom: 0;
-    width: 100%;
+/* Biography Section */
+.biography-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 20px;
 }
-
-/* Additional Font Awesome Styles */
-.fa-fw {
-    text-align: center;
-    width: 1.25em;
-}
-
-.fa-border {
-    border-radius: .1em;
-    border: .08em solid var(--fa-border-color);
-    padding: .2em .25em .15em;
-}
-
-.fa-spin {
-    -webkit-animation: fa-spin 2s linear infinite;
-    animation: fa-spin 2s linear infinite;
-}
-
-/* Keyframes */
-@-webkit-keyframes fa-spin {
-    0% { transform: rotate(0); }
-    100% { transform: rotate(360deg); }
-}
-
-@keyframes fa-spin {
-    0% { transform: rotate(0); }
-    100% { transform: rotate(360deg); }
-}
-
-/* General Section Styles */
-.home-section {
-    padding: 40px 20px;
-    margin: 0; /* Remove any margins between sections */
-    /* background: none;*/ /* Ensure background is consistent with the main content */
-    /* border: none; */
-}
-
 
 .left-section {
     text-align: center;
@@ -199,51 +123,20 @@ body {
 }
 
 .left-section .portrait-title {
-    font-size: 2rem; /* Larger name */
-    font-weight: normal; /* Not bold */
-    color: #e0e0e0; /* Standard light color */
-}
-
-.left-section h2, 
-.left-section h3, 
-.left-section h4 {
-    margin: 10px 0;
-    color: #e0e0e0;
-}
-
-.left-section .network-icon {
-    list-style: none;
-    padding: 0;
-    margin-top: 15px;
-    display: flex;
-    justify-content: center;
-    gap: 10px;
-}
-
-.left-section .network-icon li {
-    display: inline-block;
-}
-
-.left-section .network-icon a {
-    color: #e0e0e0;
-    font-size: 1.5rem;
-}
-
-/* Right Section: About Me, Interests, Education */
-.right-section {
-    color: #e0e0e0;
-    flex: 1;
+    font-size: 2.4rem;
+    font-weight: normal;
+    color: var(--text-color);
 }
 
 .left-section .student-grade {
-    color: #a0a0a0; /* Light grey color for the grade */
-    font-size: 1.2rem;
-    margin: 10px 0;
+    color: #a0a0a0;
+    font-size: 1.4rem;
+    margin: 5px 0;
 }
 
 .left-section .school-link {
-    color: #bbdefa; /* Light blue color for the school link */
-    font-size: 1.2rem;
+    color: #bbdefa;
+    font-size: 1.4rem;
     margin-bottom: 20px;
     display: inline-block;
 }
@@ -254,33 +147,34 @@ body {
     margin-top: 15px;
     display: flex;
     justify-content: center;
-    gap: 15px; /* Space between icons */
-}
-
-.left-section .network-icon li {
-    display: inline-block;
+    gap: 15px;
 }
 
 .left-section .network-icon img {
-    width: 30px; /* Size of the icons */
+    width: 30px;
     height: 30px;
-    filter: brightness(0) invert(1) sepia(1) saturate(5000%) hue-rotate(90deg); /* Color to match the EPITA link */
+    filter: brightness(0) invert(1) sepia(1) saturate(5000%) hue-rotate(90deg);
+}
+
+.right-section {
+    color: var(--text-color);
+    flex: 1;
 }
 
 .right-section h1 {
     margin-bottom: 20px;
-    font-size: 2rem;
+    font-size: 2.5rem;
 }
 
 .right-section h2 {
     margin-top: 20px;
-    font-size: 1.5rem;
+    font-size: 2rem;
 }
 
 .right-section p {
     margin-bottom: 20px;
-    font-size: 1rem;
-    line-height: 1.6;
+    font-size: 1.25rem;
+    line-height: 1.5;
 }
 
 .right-section ul {
@@ -293,77 +187,151 @@ body {
     margin-bottom: 10px;
 }
 
-/* Media Queries for Responsiveness */
-@media (max-width: 991px) {
-    .biography-container {
-        flex-direction: column;
-        align-items: center;
-    }
+/* Accomplishments Section */
+#accomplishments {
+    padding: 40px 20px;
+    background-color: #22252e;
+    color: var(--text-color);
 }
 
-.biography-container {
+#accomplishments h1 {
+    margin-bottom: 30px;
+    font-size: 2.5rem;
+}
+
+.accomplishment-content h2 {
+    font-size: 2rem; /* Increased size for accomplishment title */
+}
+
+.accomplishment-item {
     display: flex;
-    justify-content: space-between;
-    align-items: flex-start; /* Aligns items to the top of the container */
-    gap: 20px; /* Adds space between the two sections */
+    align-items: center;
+    margin-bottom: 20px;
 }
 
+.accomplishment-details {
+    background-color: #353a40;
+    padding: 20px;
+    border-radius: 10px;
+    width: 100%;
+    color: var(--text-color);
+}
 
+.accomplishment-header {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
 
+.accomplishment-logo {
+    width: 150px;
+    display: block;
+    margin-bottom: 10px;
+}
 
-#education h1 {
-    margin-bottom: 20px;
+.accomplishment-content h2 {
+    margin-top: 10px;
     font-size: 2rem;
 }
 
-#education ul {
-    list-style: none;
-    padding: 0;
-    margin: 0;
+.company-date {
+    color: #a0a0a0;
+    font-size: 1.25rem;
+    margin-top: 3px;
 }
 
-#education ul li {
-    margin-bottom: 10px;
-    font-size: 1rem;
-    line-height: 1.6;
+.description {
+    margin-left: 20px;
+    margin-top: 10px;
+    font-size: 1.25rem;
+    color: #d0d0d0;
 }
 
+.certification-link {
+    font-size: 1.5rem;
+    display: block;
+    margin-top: 15px;
+    text-decoration: none;
+}
 
-
-
-/* Specific Section Styles */
-#about {
-    background-color: #272935
-    ;  /* Dark background for the About Me section */
-    color: #e0e0e0;  /* Light text color for contrast */
+.certification-link:hover {
+    text-decoration: underline;
 }
 
 /* Education Section */
 #education {
     padding: 40px 20px;
-    background-color: #242730; /* Match with the overall theme */
-    color: #e0e0e0;
+    background-color: #22252e; /* Dark background */
+    color: var(--text-color);
 }
 
-#experience {
-    background-color: #272935;  /* Slightly darker background for the Projects section */
-    color: #e0e0e0;  /* Maintain consistent text color */
+#education h1 {
+    margin-bottom: 30px;
+    font-size: 2.5rem; /* Match the size with Accomplishments title */
 }
 
-#projects {
-    background-color: #272935;  /* Slightly darker background for the Projects section */
-    color: #e0e0e0;  /* Maintain consistent text color */
+.education-item {
+    margin-bottom: 20px; /* Space between each education item */
 }
 
-#contact {
-    background-color: #242730;  /* Primary color for the Contact section */
-    color: #e0e0e0;  /* Dark text color for contrast */
+.education-details {
+    background-color: #353a40; /* Darker rectangle */
+    padding: 20px;
+    border-radius: 10px;
+    color: var(--text-color);
 }
 
-/* Adding additional padding to the footer to distinguish it from sections */
+.education-header {
+    display: flex;
+    align-items: center;
+    gap: 20px; /* Space between the logo and the school name */
+}
+
+.education-logo {
+    width: 150px; /* Adjust the size of the logo */
+    display: block;
+    margin-bottom: 10px;
+}
+
+.education-details h2 {
+    margin-top: 10px;
+    font-size: 2rem; /* Larger font size for the school name */
+}
+
+.school-date {
+    color: #a0a0a0; /* Light gray for the school name and date */
+    font-size: 1.25rem; /* Slightly smaller font for the date */
+    margin-top: 3px; /* Decreased space between school name and date */
+}
+
+.education-description {
+    margin-left: 20px; /* Add margin to the description for better alignment */
+    margin-top: 10px;
+    font-size: 1.25rem; /* Match font size with description text */
+    color: #d0d0d0; /* Slightly lighter text color for the bullet points */
+}
+
+.education-description li {
+    margin-bottom: 10px; /* Space between each bullet point */
+}
+
+/* Additional Styling */
+#about, #experience, #projects, #contact {
+    background-color: #272935;
+    color: var(--text-color);
+}
+
 .site-footer {
     padding: 20px 0;
-    background-color: #272935;  /* Same background as About Me for consistency */
-    color: #e0e0e0;
+    background-color: #22252e;
+    color: var(--text-color);
     text-align: center;
+}
+
+/* Responsive Design */
+@media (max-width: 991px) {
+    .biography-container {
+        flex-direction: column;
+        align-items: center;
+    }
 }
