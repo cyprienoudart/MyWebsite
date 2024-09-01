@@ -17,6 +17,22 @@
     --box-border: #dee2e6;
     /* Box Text Color for Light Theme */
     --box-text-color: #4d4d4d; /* Slightly darker than the default text color */
+    --bullet-point-color: #6c757d; /* New color for bullet points in light mode */
+}
+
+/* Education Section Bullet Points */
+:root[data-theme='light'] .education-description li {
+    color: var(--bullet-point-color); /* Set bullet points to gray in light mode */
+}
+
+/* Projects Section Description */
+:root[data-theme='light'] .project-description {
+    color: var(--bullet-point-color); /* Set project descriptions to gray in light mode */
+}
+
+/* Accomplishments Section Description */
+:root[data-theme='light'] .description {
+    color: var(--bullet-point-color); /* Set accomplishment descriptions to gray in light mode */
 }
 
 :root[data-theme='dark'] {
@@ -53,6 +69,17 @@ body {
     padding-top: 50px;
     overflow-x: hidden;
     transition: background-color 0.3s, color 0.3s;
+    scroll-behavior: smooth;
+}
+
+/* Apply a smooth transition to all elements */
+body, .navbar, .footer, .box, .home-section, .network-icon img {
+    transition: background-color 0.3s, color 0.3s, border-color 0.3s;
+}
+
+header {
+    margin-bottom: 0;
+    padding-top: 0;
 }
 
 a {
@@ -133,6 +160,10 @@ a:hover {
     color: var(--primary-color);
 }
 
+.navbar-brand:hover {
+    text-decoration: none !important; /* Ensure no underline */
+}
+
 /* Profile Picture */
 .avatar {
     width: 300px;
@@ -153,8 +184,9 @@ a:hover {
 
 .left-section {
     text-align: center;
-    margin-bottom: 20px;
+    margin-bottom: 10px;
     flex: 1;
+    margin-top: 50px;
 }
 
 .left-section .portrait-title {
@@ -215,7 +247,7 @@ a:hover {
 /* Adjust the font sizes and spacing for a balanced layout */
 .right-section h1 {
     font-size: 2rem; /* Main title font size */
-    margin-bottom: 10px; /* Space below main title */
+    margin-bottom: 5px; /* Space below main title */
 }
 
 .right-section p {
@@ -538,31 +570,6 @@ a:hover {
     justify-content: center;
     gap: 10px; /* Space between icons */
     margin-top: 10px; /* Reduce space between school link and icons */
-}
-
-/* Directly target images within the network-icon list */
-.network-icon img {
-    display: inline-block;
-    width: 55px; /* Set the height of the icons */
-    height: 55px; /* Set the height of the icons */
-    vertical-align: middle; /* Align the images with the middle of the text */
-    border: none; /* Remove any border that might be applied */
-    background: none; /* Ensure no background color is applied */
-    -webkit-filter: none; /* Remove any filters */
-    filter: none; /* Ensure no CSS filters are applied */
-    opacity: 1; /* Ensure full opacity */
-    color: initial; /* Ensure the color is not altered */
-}
-
-/* Prevent links from changing color or applying underline to images */
-.network-icon a {
-    color: inherit; /* Inherit color to prevent changing icon color */
-    text-decoration: none; /* Prevent underlining */
-}
-
-.network-icon a:hover {
-    text-decoration: none; /* Ensure no underline on hover */
-    color: inherit; /* Ensure color doesn't change on hover */
 }
 
 

@@ -5,6 +5,10 @@ document.addEventListener('DOMContentLoaded', function() {
     const themeIcon = document.getElementById('theme-icon');
     const emailIcon = document.getElementById('email-icon');
     const locationIcon = document.getElementById('location-icon');
+    const epitaLink = document.getElementById('epita-link');
+
+    // Apply smooth transition for theme changes
+    document.documentElement.style.transition = "background-color 0.3s, color 0.3s, border-color 0.3s";
 
     // Function to toggle theme
     function toggleTheme() {
@@ -14,12 +18,14 @@ document.addEventListener('DOMContentLoaded', function() {
             emailIcon.src = 'pictures/email-light.png'; // Change to light mode icon
             locationIcon.src = 'pictures/location-light.png'; // Change to light mode icon
             themeIcon.src = 'pictures/moon.png'; // Change to moon icon for light mode
+            epitaLink.style.color = '#3a75c4'; // Change EPITA link to original darker color for light mode
         } else {
             document.documentElement.setAttribute('data-theme', 'dark');
             localStorage.setItem('theme', 'dark');
             emailIcon.src = 'pictures/email-dark.png'; // Change to dark mode icon
             locationIcon.src = 'pictures/location-dark.png'; // Change to dark mode icon
             themeIcon.src = 'pictures/sun.png'; // Change to sun icon for dark mode
+            epitaLink.style.color = '#bbdefa'; // Restore EPITA link to light blue color for dark mode
         }
     }
 
@@ -34,10 +40,12 @@ document.addEventListener('DOMContentLoaded', function() {
             emailIcon.src = 'pictures/email-light.png'; // Set light mode icon
             locationIcon.src = 'pictures/location-light.png'; // Set light mode icon
             themeIcon.src = 'pictures/moon.png'; // Set moon icon for light mode
+            epitaLink.style.color = '#3a75c4'; // Set EPITA link to original darker color for light mode
         } else {
             emailIcon.src = 'pictures/email-dark.png'; // Set dark mode icon
             locationIcon.src = 'pictures/location-dark.png'; // Set dark mode icon
             themeIcon.src = 'pictures/sun.png'; // Set sun icon for dark mode
+            epitaLink.style.color = '#bbdefa'; // Set EPITA link to light blue color for dark mode
         }
     } else {
         // If no saved preference, check the system preference
@@ -46,11 +54,13 @@ document.addEventListener('DOMContentLoaded', function() {
             emailIcon.src = 'pictures/email-dark.png'; // Set dark mode icon
             locationIcon.src = 'pictures/location-dark.png'; // Set dark mode icon
             themeIcon.src = 'pictures/sun.png'; // Set sun icon for dark mode
+            epitaLink.style.color = '#bbdefa'; // Set EPITA link to light blue color for dark mode
         } else {
             document.documentElement.setAttribute('data-theme', 'light');
             emailIcon.src = 'pictures/email-light.png'; // Set light mode icon
             locationIcon.src = 'pictures/location-light.png'; // Set light mode icon
             themeIcon.src = 'pictures/moon.png'; // Set moon icon for light mode
+            epitaLink.style.color = '#3a75c4'; // Set EPITA link to original darker color for light mode
         }
     }
 });
