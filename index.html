@@ -7,6 +7,8 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>Cyprien Oudart's Website</title>
 
+    <!-- Leaflet CSS -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" />
     <!-- Custom CSS -->
     <link rel="stylesheet" href="style.css">
 
@@ -41,11 +43,15 @@
                         <a class="nav-link" href="#projects">Projects</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#accomplishement">Accomplishments</a>
+                        <a class="nav-link" href="#accomplishments">Accomplishments</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="#contact">Contact</a>
                     </li>
+                    <!-- Theme Toggle Button -->
+                    <button id="theme-toggle" style="background: none; border: none; padding: 0; cursor: pointer;">
+                        <img src="pictures/moon.png" alt="Toggle Theme" id="theme-icon" style="width: 24px; height: 24px;">
+                    </button>
                 </ul>
             </div>
         </nav>
@@ -58,36 +64,32 @@
                     <!-- Left Section: Picture, Name, Grade, School, Links -->
                     <div class="col-12 col-lg-6 left-section">
                         <img class="avatar" src="pictures/ProfilePicture.jpg" alt="Cyprien Oudart">
-                        <div class="portrait-title">
-                            <h2>Cyprien Oudart</h2>
-                            <h3 class="student-grade">Computer Science Undergraduate Student</h3>
-                            <h4><a href="https://www.epita.fr/" target="_blank" class="school-link">EPITA</a></h4>
+                        <div class="portrait-title" style="margin-bottom: 10px;">
+                            <h2 style="margin-bottom: 5px;">Cyprien Oudart</h2>
+                            <h3 class="student-grade" style="margin-bottom: 0; line-height: 1.2;">Computer Science Undergraduate Student</h3>
+                            <h4 style="margin-top: 0; margin-bottom: 5px; line-height: 1.2;"><a href="https://www.epita.fr/" target="_blank" class="school-link">EPITA</a></h4>
                         </div>
-                        <ul class="network-icon">
-                            <li><a href="mailto:cypoudart@gmail.com" aria-label="Email"><i class="fa-solid fa-envelope" style="color: #74C0FC;"></i></a></li>
-                            <li><a href="https://www.linkedin.com/in/CyprienOudart/" target="_blank" aria-label="LinkedIn"><i class="fa-brands fa-linkedin" style="color: #74C0FC;"></i></a></li>
-                            <li><a href="https://github.com/CyprienOudart" target="_blank" aria-label="GitHub"><i class="fa-brands fa-github" style="color: #74C0FC;"></i></a></li>
-                            <li><a href="https://leetcode.com/CyprienOudart/" target="_blank" aria-label="LeetCode"><i class="fab fa-code"></i></a></li>
-                            <li><a href="resume.pdf" target="_blank" aria-label="Resume"><i class="fas fa-file"></i></a></li>
+                        <ul class="network-icon" style="display: flex; justify-content: center; gap: 10px; margin-top: 10px;">
+                            <li><a href="mailto:cypoudart@gmail.com" aria-label="Email"><img src="pictures/email.png" alt="Email Icon" style="width: 55px; height: 55px;"></a></li>
+                            <li><a href="https://github.com/CyprienOudart" target="_blank" aria-label="GitHub"><img src="pictures/github.png" alt="GitHub Icon" style="width: 55px; height: 55px;"></a></li>
+                            <li><a href="https://www.linkedin.com/in/CyprienOudart/" target="_blank" aria-label="LinkedIn"><img src="pictures/linkedin.png" alt="LinkedIn Icon" style="width: 55px; height: 55px;"></a></li>
+                            <li><a href="https://leetcode.com/CyprienOudart/" target="_blank" aria-label="LeetCode"><img src="pictures/leetcode.png" alt="LeetCode Icon" style="width: 55px; height: 55px;"></a></li>
+                            <li><a href="resume.pdf" target="_blank" aria-label="Resume"><img src="pictures/resume.png" alt="Resume Icon" style="width: 55px; height: 55px;"></a></li>
                         </ul>
                     </div>
         
                     <!-- Right Section: About Me, Interests -->
                     <div class="col-12 col-lg-6 right-section">
-                        <h1>About Me</h1>
-                        <p>I am a software engineering student at EPITA with a strong interest in developing innovative solutions to complex technical problems. I have completed a semester at UC Berkeley, where I focused on deepening my understanding of computational theories.</p>
-                        
-                        <div class="row">
-                            <!-- Interests -->
-                            <div class="col-12 col-md-12">
-                                <h2>Interests</h2>
-                                <ul>
-                                    <li>Software Development</li>
-                                    <li>Artificial Intelligence</li>
-                                    <li>Algorithm</li>
-                                </ul>
-                            </div>
-                        </div>
+                        <h1 style="font-size: 2.5rem; margin-bottom: 10px;">About Me</h1>
+                        <p style="font-size: 1.2rem; line-height: 1.6; margin-bottom: 15px;">
+                            As a passionate computer science student at EPITA, I have developed a strong foundation in software engineering, reinforced by an enriching summer semester at UC Berkeley. My academic journey has equipped me with the technical skills and analytical abilities necessary to tackle complex challenges in the world of technology.
+                        </p>
+                        <p style="font-size: 1.2rem; line-height: 1.6; margin-bottom: 20px;">
+                            Beyond my academic pursuits, I am deeply passionate about coding and constantly exploring new technological frontiers. I thrive on the excitement of bringing ideas to life through projects, and I relish the process of discovery that comes with learning new concepts. In my free time, I enjoy playing video games, which often inspire my creativity, and spending time with friends, as I believe in a balanced life that includes both work and play.
+                        </p>
+                        <p style="font-size: 1.2rem; line-height: 1.6; margin-bottom: 20px;">
+                            My interests span across software development, artificial intelligence, and algorithms, all of which drive my curiosity and fuel my desire to innovate. Whether it's exploring the latest advancements in AI or diving into complex algorithmic challenges, I am constantly seeking opportunities to expand my knowledge and apply it to real-world problems.
+                        </p>
                     </div>
                 </div>
             </div>
@@ -99,13 +101,15 @@
                 <h1>Education</h1>
         
                 <!-- First Education Experience -->
-                <div class="education-item">
-                    <div class="education-details">
+                <div class="education-item" style="margin-bottom: 35px;">
+                    <div class="lift-on-hover">
                         <div class="education-header">
-                            <img src="pictures/Epita.png" alt="School Logo" class="education-logo">
+                            <a href="https://www.epita.fr/" target="_blank">
+                            <img src="pictures/Epita.png" alt="School Logo" style="width: 170px;" class="education-logo">
+                            </a>
                             <div>
-                                <h2>EPITA School of Engineering and Computer Science</h2>
-                                <p class="school-date">Sep 2021 - Jun 2026</p>
+                                <h2><a href="https://www.epita.fr/" target="_blank" style="color: inherit; text-decoration: none;">EPITA School of Engineering and Computer Science</a></h2>
+                                <p class="school-date">Sep 2023 - Jun 2028  </p>
                             </div>
                         </div>
                         <ul class="education-description">
@@ -118,11 +122,13 @@
         
                 <!-- Second Education Experience -->
                 <div class="education-item">
-                    <div class="education-details">
+                    <div class="lift-on-hover">
                         <div class="education-header">
+                            <a href="https://www.berkeley.edu/" target="_blank">
                             <img src="pictures/UCBerkeley.png" alt="School Logo" class="education-logo">
+                            </a>
                             <div>
-                                <h2>UC Berkeley, Summer Session</h2>
+                                <h2><a href="https://www.berkeley.edu/" target="_blank" style="color: inherit; text-decoration: none;">UC Berkeley, Summer Session</a></h2>
                                 <p class="school-date">Jun 2024 - Aug 2024</p>
                             </div>
                         </div>
@@ -147,35 +153,51 @@
 
         <section id="projects" class="home-section">
             <div class="container">
+                <!-- Projects Title -->
                 <h1>Projects</h1>
-                <p>A showcase of the various projects I’ve worked on, including descriptions, technologies used, and links to live demos or source code.</p>
+        
+                <!-- Project Grid -->
+                <div class="project-grid">
+                    <!-- Project Cube: English to Korean Translator -->
+                    <a href="#" class="project-cube lift-on-hover">
+                        <div class="project-content">
+                            <h2>English to Korean Translator</h2>
+                            <img src="https://example.com/path/to/translator-image.jpg" alt="Translator Project Image" class="project-image">
+                            <p class="project-description">A web-based tool that translates English text into Korean, leveraging advanced natural language processing techniques.</p>
+                        </div>
+                    </a>
+                    <!-- <a href="#" class="project-cube lift-on-hover">
+                        <div class="project-content">
+                            <h2>Another Project</h2>
+                            <img src="https://example.com/path/to/another-project-image.jpg" alt="Another Project Image" class="project-image">
+                            <p class="project-description">A brief description of another project.</p>
+                        </div>
+                    </a> -->
+                    <!-- Add more project cubes as needed -->
+                </div>
             </div>
         </section>
 
         <section id="accomplishments" class="home-section">
             <div class="container">
                 <!-- Accomplishments Title -->
-                <div class="row">
-                    <div class="col-12">
-                        <h1>Accomplishments</h1>
-                    </div>
-                </div>
+                <h1>Accomplishments</h1>
         
-                <!-- First Accomplishment Item -->
-                <div class="row accomplishment-item">
-                    <!-- Accomplishment Details on the Left and Right -->
-                    <div class="col-12 col-lg-12 accomplishment-details">
-                        <div class="accomplishment-content">
-                            <div class="accomplishment-header">
-                                <img src="https://www.google.com/images/branding/googlelogo/1x/googlelogo_color_272x92dp.png" alt="Google Logo" class="accomplishment-logo">
-                                <div>
-                                    <h2>Google Data Analytics Specialization</h2>
-                                    <p class="company-date">Google     &#x2022;  Aug 2024</p>
-                                </div>
+                <!-- First Certification (Google Data Analytics Specialization) -->
+                <div class="accomplishment-item" style="margin-bottom: 20px;">
+                    <div class="lift-on-hover">
+                        <div class="accomplishment-header">
+                            <a href="https://about.google/" target="_blank">
+                                <img src="https://www.google.com/images/branding/googlelogo/1x/googlelogo_color_272x92dp.png" alt="Google Logo" class="accomplishment-logo"> <!-- Default size for logos --> </a>
+                            <div>
+                                <h2><a href="https://coursera.org/share/f66adc7335ef82fdee53269119fcac76" target="_blank" style="color: inherit; text-decoration: none;">Google Data Analytics Specialization</a></h2>
+                                <p class="company-date">Google • Aug 2024</p>
                             </div>
-                            <p class="description">This specialization provides a thorough understanding of data analytics concepts and practical skills. It covers topics like data cleaning, analysis, and visualization using tools such as Excel, SQL, R, and Tableau.</p>
-                            <a href="https://coursera.org/share/f66adc7335ef82fdee53269119fcac76" target="_blank" class="certification-link" style="color: #74C0FC; font-size: 1.2rem;">See certification</a>
                         </div>
+                        <p class="description">
+                            This specialization provides a thorough understanding of data analytics concepts and practical skills. It covers topics like data cleaning, analysis, and visualization using tools such as Excel, SQL, R, and Tableau.
+                        </p>
+                        <a href="https://coursera.org/share/f66adc7335ef82fdee53269119fcac76" target="_blank" class="certification-link" style="color: #74C0FC; font-size: 1.25rem; font-weight:Semi-Bold;">See certification</a>
                     </div>
                 </div>
             </div>
@@ -183,12 +205,24 @@
 
         <section id="contact" class="home-section">
             <div class="container">
-                <h1>Contact</h1>
-                <p>For any inquiries, please reach out via LinkedIn or email me at <a href="mailto:cypoudart@gmail.com">cypoudart@gmail.com</a>.</p>
-                <ul>
-                    <li><a href="https://www.linkedin.com/in/CyprienOudart/" target="_blank">LinkedIn</a></li>
-                    <li><a href="mailto:cypoudart@gmail.com">Email</a></li>
-                </ul>
+                <h1 style="font-size: 2.5rem; margin-bottom: 20px; text-align: left; color: var(--text-color);">
+                    Contact
+                </h1>
+                <div class="contact-info" style="margin: 0 auto; margin-top: 50px; text-align: left; display: flex; flex-direction: column; align-items: center;">
+                    <!-- Email Contact -->
+                    <div class="contact-item" style="display: flex; align-items: center; margin-bottom: 15px;">
+                        <img src="pictures/email-light.png" alt="Email Icon" class="contact-icon" id="email-icon">
+                        <a href="mailto:cypoudart@gmail.com" style="font-size: 1.5rem; color: var(--text-color); text-decoration: none;" onmouseover="this.style.textDecoration='underline'; this.style.color='#74C0FC';" onmouseout="this.style.textDecoration='none'; this.style.color='var(--text-color)';">cypoudart@gmail.com</a>
+                    </div>
+                    
+                    <!-- Location Contact -->
+                    <div class="contact-item" style="display: flex; align-items: center; margin-bottom: 15px;">
+                        <img src="pictures/location-light.png" alt="Location Icon" class="contact-icon" id="location-icon">
+                        <span style="font-size: 1.5rem; color: var(--text-color);">Paris, France&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+                    </div>
+                </div>
+                <!-- Map Container -->
+                <div id="map" style="height: 320px; margin-top: 20px;"></div> 
             </div>
         </section>
     </main>
@@ -198,6 +232,12 @@
             <p>&copy; 2024 Cyprien Oudart</p>
         </div>
     </footer>
+
+    <!-- Leaflet JS -->
+    <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
+    
+    <!-- Link to your external JS file -->
+    <script src="script.js"></script>
 </body>
 
 </html>
