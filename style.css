@@ -254,6 +254,7 @@ a:hover {
     font-size: 1rem; /* Paragraph font size */
     line-height: 1.5; /* Adjusted line height */
     margin-bottom: 10px; /* Space below paragraphs */
+    text-align: justify; /* Justify alignment for the About Me section */
 }
 
 .right-section h2 {
@@ -469,6 +470,48 @@ a:hover {
     text-align: center;
 }
 
+/* Adjust font size for smaller screens */
+@media (max-width: 1200px) {
+    body {
+        font-size: 1.15rem; /* Slightly smaller font size for mid-size screens */
+    }
+
+    .right-section h1 {
+        font-size: 2.2rem; /* Adjusting the header size */
+    }
+}
+
+@media (max-width: 992px) {
+    body {
+        font-size: 1.1rem; /* Further decrease font size for tablets */
+    }
+
+    .right-section h1 {
+        font-size: 2rem; /* Adjusting the header size */
+    }
+}
+
+@media (max-width: 768px) {
+    body {
+        font-size: 1rem; /* Even smaller font size for mobile */
+    }
+
+    .right-section h1 {
+        font-size: 1.8rem; /* Adjusting the header size for mobile */
+    }
+}
+
+@media (max-width: 576px) {
+    body {
+        font-size: 0.9rem; /* Smallest size for very small screens */
+    }
+
+    .right-section h1 {
+        font-size: 1.6rem; /* Adjusting the header size for very small screens */
+    }
+}
+
+
 /* Responsive Design */
 @media (max-width: 991px) {
     .biography-container {
@@ -476,7 +519,89 @@ a:hover {
         align-items: center;
     }
 }
+/* Only apply these styles for screens smaller than 768px */
+@media (max-width: 768px) {
+    .navbar-nav {
+        display: none; /* Initially hide the nav items */
+        flex-direction: column;
+        width: 100%;
+        text-align: center;
+        background-color: var(--navbar-bg);
+    }
 
+    .navbar-nav.show {
+        display: flex; /* Show nav items when the menu is open */
+    }
+
+    .navbar-nav .nav-item {
+        margin: 10px 0; /* Add some space between nav items */
+    }
+
+    /* Hamburger Icon */
+    .navbar-toggler {
+        display: block;
+        background: none;
+        border: none;
+        font-size: 1.5rem;
+        cursor: pointer;
+    }
+
+    /* Hide the button in large screens */
+    .navbar-toggler {
+        display: block;
+    }
+
+    /* Hide the nav items when in mobile mode */
+    .navbar-brand {
+        flex-grow: 1;
+    }
+}
+
+/* Default - hide the navbar-toggler unless activated */
+.navbar-toggler {
+    display: none;
+    background: none;
+    border: none;
+    font-size: 1.5rem;
+    cursor: pointer;
+    position: absolute;
+    right: 50px; /* Move it to the left by increasing the right margin */
+    top: 15px;
+    z-index: 1001;
+    transition: color 0.3s ease;
+    margin-right: 22px; /* Add a right margin to push it further to the left */
+}
+
+/* Show the hamburger button when there's not enough space */
+@media (max-width: 768px) {
+    .navbar-nav.show {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        text-align: center;
+        background-color: var(--navbar-bg);
+    }
+
+    .navbar-nav .nav-item {
+        margin: 2px 0; /* Reduced space between categories */
+    }
+
+    .navbar-toggler {
+        display: block;
+    }
+    .navbar-nav {
+        gap: 5px; /* Reduce the gap between categories (less than half) */
+    }
+}
+
+/* Ensure the button color matches the theme */
+:root[data-theme='light'] .navbar-toggler {
+    color: #000000; /* Black for light theme */
+}
+
+:root[data-theme='dark'] .navbar-toggler {
+    color: #ffffff; /* White for dark theme */
+}
 
 /* Contact Section Title */
 #contact h1 {
