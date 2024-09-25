@@ -1,6 +1,7 @@
 document.addEventListener('DOMContentLoaded', function() {
     console.log('Website Loaded');
 
+/////////// Theme Toggle Section //////////////
     const toggleButton = document.getElementById('theme-toggle');
     const themeIcon = document.getElementById('theme-icon');
     const emailIcon = document.getElementById('email-icon');
@@ -30,6 +31,38 @@ document.addEventListener('DOMContentLoaded', function() {
         updateHamburgerColor(); // Update hamburger color to match theme
     }
 
+/////////// Translation Section //////////////
+    // Automatically change language based on browser settings
+    document.addEventListener('DOMContentLoaded', () => {
+        let userLang = navigator.language || navigator.userLanguage; // Get browser language
+        const supportedLangs = ['en', 'fr', 'ko', 'zh']; // Supported languages
+    
+        // Function to show/hide translations based on the selected language
+        function toggleLanguage() {
+            // Loop through all supported languages
+            supportedLangs.forEach(lang => {
+                if (lang === userLang) {
+                    // Show English if the detected language is English
+                    document.querySelectorAll(`[lang="${lang}"]`).forEach(el => el.style.display = 'block');
+                } else {
+                    // Hide other languages
+                    document.querySelectorAll(`[lang="${lang}"]`).forEach(el => el.style.display = 'none');
+                }
+            });
+        }
+    
+        // Function to set the language
+        window.setLanguage = function(lang) {
+            if (supportedLangs.includes(lang)) {
+                userLang = lang; // Update userLang with selected language
+                toggleLanguage(); // Update displayed language
+            }
+        };
+    
+        toggleLanguage(); // Call the function on page load
+    });
+
+/////////// Event Listeners Section //////////////
     // Event listener for the toggle button
     toggleButton.addEventListener('click', toggleTheme);
 
@@ -46,13 +79,14 @@ document.addEventListener('DOMContentLoaded', function() {
         const prefersDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
         const defaultTheme = prefersDark ? 'dark' : 'light';
         document.documentElement.setAttribute('data-theme', defaultTheme);
-
+        
         emailIcon.src = `pictures/email-${defaultTheme}.png`;
         locationIcon.src = `pictures/location-${defaultTheme}.png`;
         themeIcon.src = defaultTheme === 'dark' ? 'pictures/sun.png' : 'pictures/moon.png';
         epitaLink.style.color = defaultTheme === 'dark' ? '#bbdefa' : '#3a75c4';
     }
 
+/////////// Navbar Functionality Section //////////////
     // Dynamically show the hamburger menu based on navbar width and screen size
     window.addEventListener('resize', handleNavbarVisibility);
     handleNavbarVisibility(); // Run on load
@@ -92,6 +126,7 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
 
+/////////// Map Initialization Section //////////////
     // Initialize the map and set its view to Paris, France
     var map = L.map('map').setView([48.8566, 2.3522], 13); // Coordinates for Paris
 
