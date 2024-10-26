@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Translator - Linguee</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    /* Translator container with theme styling */
+    .translator-container {
+      max-width: 800px;
+      margin: 20px auto;
+      padding: 20px;
+      background-color: var(--section-bg-1);
+      border: 1px solid var(--box-border);
+      border-radius: 10px;
+      color: var(--text-color);
+    }
+    .translator-container h2 {
+      font-size: 2rem;
+      margin-bottom: 20px;
+      color: var(--text-color);
+    }
+    #translationsTable {
+      width: 100%;
+      border-collapse: collapse;
+    }
+    th, td {
+      padding: 10px;
+      text-align: left;
+      border-bottom: 1px solid var(--box-border);
+      color: var(--text-color);
+    }
+    th {
+      background-color: var(--box-bg);
+      color: var(--primary-color);
+    }
+    input[type="text"] {
+      padding: 8px;
+      font-size: 1rem;
+      margin-right: 10px;
+      border: 1px solid var(--box-border);
+      border-radius: 5px;
+      color: var(--text-color);
+      background-color: var(--background-color);
+    }
+    button {
+      background-color: var(--primary-color);
+      color: #ffffff;
+      padding: 10px 20px;
+      font-size: 1rem;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: background-color 0.3s;
+    }
+    button:hover {
+      background-color: #5da2db;
+    }
+  </style>
+</head>
+<body data-theme="dark">
+
+  <section class="translator-container">
+    <h2>Translator</h2>
+    <p>Enter a word to get translations in English and French:</p>
+    <input type="text" id="wordInput" placeholder="Enter a word">
+    <button onclick="fetchTranslations()">Translate</button>
+
+    <table id="translationsTable">
+      <thead>
+        <tr>
+          <th>Language</th>
+          <th>Translation</th>
+        </tr>
+      </thead>
+      <tbody>
+        <!-- Translation results will be populated here -->
+      </tbody>
+    </table>
+  </section>
+
+  <script>
+    async function fetchTranslations() {
+      const word = document.getElementById('wordInput').value;
+      const tableBody = document.getElementById('translationsTable').querySelector('tbody');
+      tableBody.innerHTML = ''; // Clear previous results
+
+      const url = `http://localhost:5000/translate?word=${word}&source=english&target=french`;
+      const response = await fetch(url);
+      const data = await response.json();
+
+      data.translations.forEach(translation => {
+        const row = document.createElement('tr');
+        row.innerHTML = `
+          <td>French</td>
+          <td>${translation}</td>
+        `;
+        tableBody.appendChild(row);
+      });
+    }
+  </script>
+
+</body>
+</html>
